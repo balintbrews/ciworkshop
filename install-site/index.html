@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Software Engineering with Style: Quality Assurance and Continuous Integration</title>
+    <title>Install the Drupal site — QA & CI </title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="An introductory workshop to continuous integration with Drupal.">
-    <link rel="canonical" href="http://balintk.comhttp://balintk.com/ciworkshop/">
+    <link rel="canonical" href="http://balintk.comhttp://balintk.com/ciworkshop/install-site/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="http://balintk.com/ciworkshop/css/main.css">
@@ -28,38 +28,23 @@
 
     <div class="page-content">
       <div class="wrap">
-      <div class="home">
-  <ol class="snippets">
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/setup-sample-drupal-project/">Setup sample Drupal project</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/install-jenkins/">Install Jenkins</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/get-code/">Get the code</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/install-site/">Install the Drupal site</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/cron-expression-helper/">Cron expression helper</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/drupal-simpletest-overview/">Drupal Simpletest overview</a>
-      </li>
-    
-      
-    
-      
-    
-  </ul>
+      <div class="post">
+
+  <a href="http://balintk.com/ciworkshop/">« Back</a>
+  
+  <header class="post-header">
+    <h1>Install the Drupal site</h1>
+  </header>
+
+  <article class="post-content">
+  <p>The Drush command to install our sample site:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">drush site-install cidrupal --site-name<span class="o">=</span><span class="s2">&quot;CI Drupal&quot;</span> --account-pass<span class="o">=</span>admin --db-url<span class="o">=</span><span class="s2">&quot;mysql://{user}:{password}@{host}/{database}&quot;</span> -y</code></pre></div>
+
+<p>Change the values between the { and } marks.</p>
+
+  </article>
+
 </div>
 
       </div>

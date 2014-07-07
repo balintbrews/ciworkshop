@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Software Engineering with Style: Quality Assurance and Continuous Integration</title>
+    <title>Get the code — QA & CI </title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="An introductory workshop to continuous integration with Drupal.">
-    <link rel="canonical" href="http://balintk.comhttp://balintk.com/ciworkshop/">
+    <link rel="canonical" href="http://balintk.comhttp://balintk.com/ciworkshop/get-code/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="http://balintk.com/ciworkshop/css/main.css">
@@ -28,38 +28,44 @@
 
     <div class="page-content">
       <div class="wrap">
-      <div class="home">
-  <ol class="snippets">
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/setup-sample-drupal-project/">Setup sample Drupal project</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/install-jenkins/">Install Jenkins</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/get-code/">Get the code</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/install-site/">Install the Drupal site</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/cron-expression-helper/">Cron expression helper</a>
-      </li>
-    
-      <li>
-        <a href="http://balintk.com/ciworkshop/drupal-simpletest-overview/">Drupal Simpletest overview</a>
-      </li>
-    
-      
-    
-      
-    
-  </ul>
+      <div class="post">
+
+  <a href="http://balintk.com/ciworkshop/">« Back</a>
+  
+  <header class="post-header">
+    <h1>Get the code</h1>
+  </header>
+
+  <article class="post-content">
+  <h2 id="build-codebase">Build codebase</h2>
+<p>The Drush Make command to build our codebase:</p>
+
+<pre><code>drush make --working-copy --no-gitinfofile platform.make web
+</code></pre>
+
+<p>This will run <em>platform.make</em>, which downloads our profile and recursively runs the makefile that is found in the profile’s repository.</p>
+
+<h2 id="copy-the-code-to-a-pre-configured-webroot">Copy the code to a pre-configured webroot</h2>
+
+<p>We need to save the <em>sites</em> folder before we override it with the newly built code. It contains the <em>settings.php</em>, the <em>files</em> folder etc. Here is some help to quickly save the valuable part:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> -d web <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  mv web web-old
+<span class="k">fi</span></code></pre></div>
+
+<p>Then, when we have the newly built <em>web</em> folder in place:</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="k">if</span> <span class="o">[</span> -d web-old <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  rm -rf web-old/sites/all
+  mv web/sites/all web-old/sites/.
+  rm -rf web/sites
+  mv web-old/sites web/sites
+  rm -rf web-old
+<span class="k">fi</span></code></pre></div>
+
+
+  </article>
+
 </div>
 
       </div>
